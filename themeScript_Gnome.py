@@ -39,7 +39,7 @@ def lightThemeSwitch():
     log("light theme applied")
 
 
-def darkThemeSwitch(): #used to 
+def darkThemeSwitch():
     if (applyGTK): subprocess.call(["gsettings", "set", "org.gnome.desktop.interface", "gtk-theme", darkThemeGTK])
     if (applyWall): subprocess.call(["gsettings", "set", "org.gnome.desktop.background", "picture-uri", darkWallpaper])
     if (applyBrghnss): subprocess.call(["xrandr","--output",monitor,"--brightness", str(darkBrghnss)])
