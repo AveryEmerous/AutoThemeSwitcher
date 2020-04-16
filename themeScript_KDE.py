@@ -18,6 +18,8 @@ def log(input): #function for writing to log file (write append)
 
 log("initializing")
 
+#Loop used to constantly check if a proper time has been met with the if statements.
+#Wait commands are used so the script isn't checking every possible tick.
 while True:
     if (int(strftime("%H%M", time.localtime())) < darkTime and int(strftime("%H%M", time.localtime())) > lightTime): #switches between dark and light theme depending on the time and only if it's inbetween the bounds
         if (currTheme != 0):

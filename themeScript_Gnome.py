@@ -9,6 +9,7 @@ lightThemeGTK = "Mojave-light"
 lightWallpaper = "/home/avery/Pictures/Wallpapers/10-13.jpg"
 darkThemeGTK = "Mojave-dark"
 darkWallpaper = "/home/avery/Pictures/Wallpapers/10-15-7-Dusk.jpg"
+monitor = "DVI-D-0"
 
 #settings
 applyGTK = 1
@@ -34,18 +35,18 @@ def checkGTK(): #checks which theme is applied
 def lightThemeSwitch():
     if (applyGTK): subprocess.call(["gsettings", "set", "org.gnome.desktop.interface", "gtk-theme", lightThemeGTK]) #acts as if the command was typed in a terminal and only executed if the setting for it is true
     if (applyWall): subprocess.call(["gsettings", "set", "org.gnome.desktop.background", "picture-uri", lightWallpaper]) 
-    if (applyBrghnss): subprocess.call(["xrandr","--output","DVI-D-0","--brightness", "1"])
+    if (applyBrghnss): subprocess.call(["xrandr","--output",monitor,"--brightness", "1"])
     log("light theme applied")
 
 
-def darkThemeSwitch():
+def darkThemeSwitch(): #used to 
     if (applyGTK): subprocess.call(["gsettings", "set", "org.gnome.desktop.interface", "gtk-theme", darkThemeGTK])
     if (applyWall): subprocess.call(["gsettings", "set", "org.gnome.desktop.background", "picture-uri", darkWallpaper])
-    if (applyBrghnss): subprocess.call(["xrandr","--output","DVI-D-0","--brightness", str(darkBrghnss)])
+    if (applyBrghnss): subprocess.call(["xrandr","--output",monitor,"--brightness", str(darkBrghnss)])
     log("dark theme applied")
 
-lightThemeSwitch()
-
+#Loop used to constantly check if a proper time has been met with the if statements.
+#Wait commands are used so the script isn't checking every possible tick.
 while True:
     if (int(strftime("%H%M", time.localtime())) < darkTime and int(strftime("%H%M", time.localtime())) > lightTime): #switches between dark and light theme depending on the time and only if it's inbetween the bounds
         if (checkGTK() == 0): #checks if another theme is applied. if yes, then execute the function. if no, don't apply the same theme again.
