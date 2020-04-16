@@ -9,5 +9,5 @@ Initialize the file at system startup with python3 and the directory of that fil
 
 # Differences
 Gnome has more features than the Cinnamon or KDE version like:
-⋅⋅* X-org brightness control(disable/enable) - requires to change string "monitor" to your specific monitor. 
-⋅⋅* Wallpaper control(disable/enable) - requires to change path to desired wallpaper for light and dark theme.
+..* X-org brightness control(disable/enable) - requires to change string "monitor" to your specific monitor. 
+..* Wallpaper control(disable/enable) - requires to change path to desired wallpaper for light and dark theme.
